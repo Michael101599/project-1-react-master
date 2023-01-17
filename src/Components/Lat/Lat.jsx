@@ -9,7 +9,7 @@ export const Lat = ({ listMovies, setListMovies }) => {
     description: "",
   });
 
-  const findPeli = (e) => {
+  const findMovie = (e) => {
     // Crear estado y actualizarlo
     let target = e.target;
     setSearch(target.value);
@@ -22,7 +22,7 @@ export const Lat = ({ listMovies, setListMovies }) => {
     });
 
     // Comprobar si hay un resultado
-    if (search.length <= 1 || moviesFinded <= 0) {
+    if (search.length <= 0 || moviesFinded <= 0) {
       moviesFinded = JSON.parse(localStorage.getItem("movies"));
       setNotFound(true);
     } else {
@@ -79,7 +79,7 @@ export const Lat = ({ listMovies, setListMovies }) => {
             id="search-field"
             autoComplete="off"
             value={search}
-            onChange={findPeli}
+            onChange={findMovie}
           />
           <button>Search</button>
         </form>
